@@ -5,10 +5,12 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Product(models.Model):
+    
     name = models.CharField('name',max_length=200)
-    content = RichTextUploadingField(verbose_name = ('content'))
+    content = RichTextUploadingField()
     price = models.BigIntegerField('narxi')
     order = models.IntegerField('buyurtma')
+    is_active = models.BooleanField('activligi',null=True,blank=True)
 
 
     def __str__(self) -> str:

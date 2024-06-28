@@ -1,5 +1,7 @@
-from django.urls import path
+from django.urls import path,include
+from common import views
 
 urlpatterns = [
-    
+   
+    path('settings/',views.SettingsGetEditAPIView.as_view()),
 ]

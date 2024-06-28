@@ -5,7 +5,7 @@ from modeltranslation.admin import TranslationAdmin
 
 admin.site.register(GalleryPhoto)
 admin.site.register(Settings)
-admin.site.register(TimeStepModel)
+# admin.site.register(TimeStepModel)
 
 @admin.register(Page)
 class PageAdminTranslation(TranslationAdmin):

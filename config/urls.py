@@ -22,10 +22,12 @@ from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('common/',include('common.urls')),
-    path('order/',include('order.urls')),
-    path('product/',include('product.urls')),
-    path('user/',include('user.urls')),
+    path('api/v1/landing/common/',include('common.landing.urls')),
+    path('api/v1/admin/common/',include('common.urls')),
+    path('api/v1/order/',include('order.urls')),
+    path('api/v1/landing/product/',include('product.landing.urls')),
+    path('api/v1/admin/product/',include('product.urls')),
+    path('api/v1/user/',include('user.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('auth/', include('rest_authtoken.urls')),
