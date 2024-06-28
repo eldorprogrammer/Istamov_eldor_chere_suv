@@ -37,7 +37,8 @@ class Page(models.Model):
         return self.title
     
     class Meta:
-        verbose_name_plural = 'Posts/'
+        verbose_name = 'Post'
+        verbose_name_plural = 'Postlar'
 
 
 

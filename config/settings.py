@@ -9,23 +9,40 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False),
+    ALLOWED_HOSTS = (list, ['*'])
+)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+
+
+SECRET_KEY = env('SECRET_KEY')
+
+DEBUG = env('DEBUG')
+
+ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i3%+mjb0^kg)%0!9gpgg#$#)(cm4dm9jn#dzncd*v_iz*4t#d6'
+# SECRET_KEY = 'django-insecure-i3%+mjb0^kg)%0!9gpgg#$#)(cm4dm9jn#dzncd*v_iz*4t#d6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,6 +65,9 @@ INSTALLED_APPS = [
     # Other apps
     'ckeditor',
     'ckeditor_uploader',
+    'rest_framework',
+    'rest_authtoken',
+
 
 
 ]
@@ -160,3 +180,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media/'
+
+
+
