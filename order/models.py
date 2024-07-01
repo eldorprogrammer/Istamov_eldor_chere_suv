@@ -1,20 +1,21 @@
 from django.db import models
 from product.models import Product
 from user.models import User
+from common.models import TimeStepModel
 # Create your models here.
 
 
 GEEKS_CHOICES =( 
-    ("created", "created"), 
-    ("in progress", "in progress"), 
-    ("on the way", "on the way"), 
-    ("delivered", "delivered"), 
-    ("cancelled", "cancelled"), 
+    ("tayyorlanmoqda", "tayyorlanmoqda"), 
+    ("yo'lda", "yo'lda"), 
+    ("yetib keldi", "yetib keldi"), 
+    ("yetkaziy yakunlandi", "yatkazish yakunlandi"), 
+   
 )
 
 
 
-class Order(models.Model):
+class Order(TimeStepModel):
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='orders')
     customer = models.ForeignKey(User,on_delete=models.CASCADE,related_name='users')
     count = models.IntegerField('soni')

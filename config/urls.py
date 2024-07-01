@@ -24,13 +24,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/landing/common/',include('common.landing.urls')),
     path('api/v1/admin/common/',include('common.urls')),
-    path('api/v1/order/',include('order.urls')),
+    path('api/v1/landing/order/',include('order.landing.urls')),
+    path('api/v1/admin/order/',include('order.urls')),
     path('api/v1/landing/product/',include('product.landing.urls')),
     path('api/v1/admin/product/',include('product.urls')),
     path('api/v1/user/',include('user.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('auth/', include('rest_authtoken.urls')),
 ]
 
 urlpatterns = [

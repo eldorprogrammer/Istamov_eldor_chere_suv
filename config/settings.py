@@ -66,7 +66,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'rest_framework',
-    'rest_authtoken',
+    'rest_framework.authtoken',
+
 
 
 
@@ -190,6 +191,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media/'
+
+
+
+# Abstrakt userdan Custom User yasalganda Settings ga AUTH_USER_MODEL = 'user.User'  ni berib ketishimiz kerak
+
+AUTH_USER_MODEL = 'user.User'   
 
 
 

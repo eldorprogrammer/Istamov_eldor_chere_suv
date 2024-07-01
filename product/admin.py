@@ -10,5 +10,6 @@ class ProductAdminTranslation(TranslationAdmin):
 
     list_display = ('name',)
     group_fieldsets = True
+    # readonly_fields = ['created_add','updated_add']
 
     

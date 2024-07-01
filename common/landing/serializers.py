@@ -25,6 +25,20 @@ class SettingsSerializers(ModelSerializer):
 class GaleryGetSerializer(ModelSerializer):
     class Meta:
         model = models.GalleryPhoto
-        fields = ['image',]
+        fields = ['image']
+
+
+class PageSerializer(ModelSerializer):
+
+    class Meta:
+
+        model = models.Page
+        fields = ['slug', 'title', 'content']
+        read_only_fields = ['slug']
+        
+        
+
+
+
 
     

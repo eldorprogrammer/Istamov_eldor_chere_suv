@@ -8,7 +8,7 @@ class ProducGetSerializer(serializers.ModelSerializer):
     
 
     class Meta:
-        model = models.Product.objects.all()
+        model = models.Product
         fields = [
                 'name',
                 'content',

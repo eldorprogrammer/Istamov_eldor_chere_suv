@@ -1,9 +1,20 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils.text import slugify
 import os
 from datetime import datetime
 
 # Create your models here.
+
+
+class TimeStepModel(models.Model):
+    created_at = models.TimeField( blank = True, null=True)
+    updated_at = models.TimeField( blank = True, null = True)
+
+    class Meta:
+        abstract = True
+
+
 
 def upload_to(instance, filename):
     # Get the current date
@@ -14,23 +25,27 @@ def upload_to(instance, filename):
     return os.path.join(path, filename)
 
 
-class GalleryPhoto(models.Model):
-    image = models.ImageField('image',upload_to=upload_to)
-
-    # def __str__(self) -> str:
-    #     return str(self.image)
+class GalleryPhoto(TimeStepModel):
+    image = models.ImageField('image',upload_to='uploads/%Y/%m/%d')
 
 
     class Meta:
         verbose_name_plural = 'Galery/'
 
-        
+    
 
 
-class Page(models.Model):
-    slug = models.SlugField('slug',default="",null=False)
+
+class Page(TimeStepModel):
     title = models.CharField('title',max_length=250,)
+    slug = models.SlugField('slug',default="",null=False)
     content = RichTextUploadingField()
+
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Page, self).save(*args, **kwargs)
 
 
     def __str__(self) -> str:
@@ -44,12 +59,7 @@ class Page(models.Model):
 
 
 
-class TimeStepModel(models.Model):
-    working_hours_start = models.CharField('ish boshlanish vaqti',max_length=10)
-    working_hours_end = models.CharField('ish tugash vaqti',max_length=10)
 
-    class Meta:
-        abstract = True
 
 
 

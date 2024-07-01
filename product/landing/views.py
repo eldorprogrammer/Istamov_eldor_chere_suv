@@ -1,16 +1,13 @@
-from rest_framework.generics import GenericAPIView
-from rest_framework.response import Response
+from rest_framework.generics import ListAPIView
 from product.landing import serializers
 from product import models
 
-class ProductGetAPIView(GenericAPIView):
+class ProductGetAPIView(ListAPIView):
     queryset = models.Product.objects.all()
     serializer_class = serializers.ProducGetSerializer
 
 
-    def get(self, request, *args, **kwargs):
-        setting = self.get_queryset().first()
-        serializer = self.get_serializer(setting)
-        return Response(serializer.data)
+
+    
     
     

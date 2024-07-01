@@ -1,4 +1,31 @@
 
 
 http://127.0.0.1:8000/api/v1/landing/common/settings/
+
+
 http://127.0.0.1:8000/api/v1/admin/common/settings/
+http://127.0.0.1:8000/api/v1/admin/common/galeryphoto/list/
+http://127.0.0.1:8000/api/v1/admin/common/galeryphoto/create/
+http://127.0.0.1:8000/api/v1/admin/common/galeryphoto/retrievedestroy/
+
+
+
+http://127.0.0.1:8000/api/v1/admin/product/listAPIView/
+http://127.0.0.1:8000/api/v1/admin/product/createAPIView/
+http://127.0.0.1:8000/api/v1/admin/product/updateAPIView/<int:pk>/
+http://127.0.0.1:8000/api/v1/admin/product/retrieveAPIView/<int:pk>/
+http://127.0.0.1:8000/api/v1/admin/product/destroyAPIView/<int:pk>/
+
+
+http://127.0.0.1:8000/api/v1/landing/product/products/
+
+
+http://127.0.0.1:8000/api/v1/admin/order/edit/
+http://127.0.0.1:8000/api/v1/admin/order/list/
+http://127.0.0.1:8000/api/v1/admin/order/retrieve/
+
+
+
+
+
+
